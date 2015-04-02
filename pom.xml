@@ -37,37 +37,41 @@
         <module>android-emulator-teamcity-plugin-agent</module>
     </modules>
 
+    <repositories>
+        <repository>
+            <id>jetbrains-all</id>
+            <url>http://repository.jetbrains.com/all</url>
+        </repository>
+    </repositories>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.jetbrains.teamcity</groupId>
+                <groupId>org.jetbrains.teamcity</groupId>
                 <artifactId>server-api</artifactId>
-                <version>8.0.3</version>
+                <version>${teamcity.version}</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
-                <groupId>com.jetbrains.teamcity</groupId>
-                <artifactId>common-api</artifactId>
-                <version>8.0.3</version>
+                <groupId>org.jetbrains.teamcity</groupId>
+                <artifactId>agent-api</artifactId>
+                <version>${teamcity.version}</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
-                <groupId>com.jetbrains.teamcity</groupId>
-                <artifactId>util</artifactId>
-                <version>8.0.3</version>
-                <scope>provided</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.jetbrains.teamcity</groupId>
+                <groupId>org.jetbrains</groupId>
                 <artifactId>annotations</artifactId>
-                <version>8.0.3</version>
-                <scope>provided</scope>
-
+                <version>13.0</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
+
+    <properties>
+        <teamcity.version>8.0.3</teamcity.version>
+    </properties>
 
     <build>
         <pluginManagement>

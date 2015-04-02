@@ -115,7 +115,6 @@ abstract class AbstractTool {
 
         cmd.setExePath(toolPath);
         cmd.setWorkDirectory(getWorkingDirectory().getPath());
-        cmd.setPassParentEnvs(false);
         cmd.setEnvParams(context.getBuildParameters().getEnvironmentVariables());
         cmd.addParameters(argumentsBefore);
         cmd.getParametersList().addParametersString(additionalArguments);
