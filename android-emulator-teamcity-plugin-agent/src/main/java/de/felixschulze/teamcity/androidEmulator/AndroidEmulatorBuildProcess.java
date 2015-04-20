@@ -129,8 +129,8 @@ public class AndroidEmulatorBuildProcess extends CallableBuildProcess {
         } catch (ExecutionException e) {
             logger.error(e.getMessage());
         }
-        logger.targetFinished("startEmulator");
 
+        logger.targetFinished("startEmulator");
     }
 
 
@@ -143,13 +143,10 @@ public class AndroidEmulatorBuildProcess extends CallableBuildProcess {
         argsAfter.add("getprop");
         argsAfter.add("dev.bootcomplete");
 
-
         long start = System.currentTimeMillis();
         int sleepTime = bootTimeout / (int) Math.sqrt(bootTimeout / 1000);
 
         while (System.currentTimeMillis() < start + bootTimeout) {
-
-
             try {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream(4);
 
@@ -165,12 +162,16 @@ public class AndroidEmulatorBuildProcess extends CallableBuildProcess {
 
             } catch (IOException e) {
                 logger.error(e.getMessage());
+                break;
             } catch (ExecutionException e) {
                 logger.error(e.getMessage());
+                break;
             } catch (InterruptedException e) {
                 logger.error(e.getMessage());
+                break;
             }
         }
+
         logger.targetFinished("waitForBootComplete");
 
         return false;
@@ -202,7 +203,6 @@ public class AndroidEmulatorBuildProcess extends CallableBuildProcess {
             logger.error(e.getMessage());
         }
         logger.targetFinished("unlockEmulator");
-
     }
 
 
@@ -211,13 +211,11 @@ public class AndroidEmulatorBuildProcess extends CallableBuildProcess {
         logger.targetStarted("shutdownEmulator");
 
         try {
-
             final List<String> argsAfter = new ArrayList<String>();
             argsAfter.add("emu");
             argsAfter.add("kill");
 
             environment.getAdbTool().adbExecuteWithoutWaiting(argsAfter);
-
         } catch (IOException e) {
             logger.error(e.getMessage());
         } catch (ExecutionException e) {
@@ -225,7 +223,6 @@ public class AndroidEmulatorBuildProcess extends CallableBuildProcess {
         }
 
         logger.targetFinished("shutdownEmulator");
-
     }
 
 
