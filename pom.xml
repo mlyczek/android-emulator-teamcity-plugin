@@ -70,7 +70,7 @@
     </dependencyManagement>
 
     <properties>
-        <teamcity.version>8.0.3</teamcity.version>
+        <teamcity.version>9.0</teamcity.version>
     </properties>
 
     <build>

@@ -7,7 +7,7 @@
     <version>2.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Android-Emulator</name>
+    <name>Android-Emulator-Server</name>
     <description>A TeamCity plugin that allows you to start an Android-Emulator.</description>
     <url>http://www.felixschulze.de</url>
 
